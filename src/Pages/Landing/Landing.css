@@ -1,0 +1,85 @@
+.LandingContainer {
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+  height: 90vh;
+  position: relative;
+}
+
+/* Default styles */
+.foods,
+.rooms {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  height: 94vh;
+  width: 100%;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.foods {
+  background-image: url("../../../public/images/foods.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+.rooms {
+  background-image: url("../../../public/images/rooms.jpg");
+  background-size: cover;
+  position: relative;
+}
+
+/* Hover effect */
+.foods:hover,
+.rooms:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+/* Show name on the opposite side */
+.foods::after,
+.rooms::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 43px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.foods:hover::after {
+  content: "Ivana Food Court";
+  opacity: 1;
+}
+
+.rooms:hover::after {
+  content: "Ivana Rooms";
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .LandingContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .foods,
+  .rooms {
+    flex-grow: 1;
+    flex-basis: 200;
+  }
+}
