@@ -44,7 +44,7 @@ function Navbar() {
               <Link to={"/foods/menu"} className="nav-link">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page">
-                    Home
+                    Menu
                   </a>
                 </li>
               </Link>
