@@ -1,18 +1,80 @@
-.LandingContainer {
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   display: flex;
-  flex: 2;
-  flex-direction: row;
-  height: 90vh;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
 }
 
-/* Default styles */
+/* Full-screen Intro */
+.IntroScreen {
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
+  z-index: 999;
+  opacity: 1;
+  animation: fadeOut 1s ease-in-out 3s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Landing Container */
+.LandingContainer {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 90vw;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  z-index: 2;
+}
+
+/* Spline Viewer */
+spline-viewer {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+/* Card Styles */
 .foods,
 .rooms {
   display: flex;
-  flex: 1;
   flex-direction: column;
-  height: 94vh;
+  height: 100%;
   width: 100%;
   border-radius: 30px;
   transition: all 0.3s ease;
@@ -23,28 +85,20 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
-}
-
-.foods {
-  background-image: url("../../../public/images/foods.jpg");
+  transform: scale(1.2);
   background-size: cover;
-  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.rooms {
-  background-image: url("../../../public/images/rooms.jpg");
-  background-size: cover;
-  position: relative;
-}
-
-/* Hover effect */
+/* Hover Effects */
 .foods:hover,
 .rooms:hover {
-  transform: scale(1.1);
+  transform: scale(1.2);
   z-index: 2;
 }
 
-/* Show name on the opposite side */
+/* Name Overlay Effect */
 .foods::after,
 .rooms::after {
   content: "";
@@ -55,7 +109,7 @@
   background: rgba(0, 0, 0, 0.6);
   padding: 10px 20px;
   border-radius: 10px;
-  font-size: 43px;
+  font-size: 30px;
   color: white;
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -69,17 +123,4 @@
 .rooms:hover::after {
   content: "Ivana Rooms";
   opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .LandingContainer {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-  .foods,
-  .rooms {
-    flex-grow: 1;
-    flex-basis: 200;
-  }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../../../Components/Navbar/Navbar";
+import "./Home.css";
 
 function Home() {
   return (
@@ -33,7 +34,7 @@ function Home() {
             <div className="carousel-item active">
               <img
                 src="../../public/images/image1.jpg"
-                className="d-block w-100"
+                className="slidebarImages d-block w-100"
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
@@ -46,7 +47,7 @@ function Home() {
             <div className="carousel-item">
               <img
                 src="../../public/images/image3.jpg"
-                className="d-block w-100"
+                className="slidebarImages d-block w-100"
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
@@ -59,7 +60,7 @@ function Home() {
             <div className="carousel-item">
               <img
                 src="../../public/images/image2.jpg"
-                className="d-block w-100"
+                className="slidebarImages d-block w-100"
                 alt="..."
               />
               <div className="carousel-caption d-none d-md-block">
